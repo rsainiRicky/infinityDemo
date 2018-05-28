@@ -1,0 +1,24 @@
+# Ignoring IDEA generated files
+*.iml
+*.ipr
+*.iws
+.idea
+*.log
+.com.apple.*
+
+# Ignoring Eclipse generated files
+*.core.prefs
+*.eclipse.prefs
+.settings
+*.project
+*.classpath
+
+# Ignoring Various build output directories
+target
+overlays
+bin
+node
+node_modules
+coverage
+out
+.sonar-ide.properties

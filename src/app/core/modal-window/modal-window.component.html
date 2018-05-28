@@ -1,0 +1,21 @@
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+<div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">EDIT INTERFACES</h5>
+        <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-add-domain-view (formsubmit)="addinterface($event)" [domainValidation]="validation"></app-add-domain-view>
+        <app-domain-list-view [canView]="canview" [interfaces]="subDomains" (updateDomain)="updatedomain($event)" (removeDomain)="removeSubdomain($event)"
+          (domainDetail)="openModal($event)"></app-domain-list-view>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

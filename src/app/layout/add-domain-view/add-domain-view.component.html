@@ -1,0 +1,21 @@
+<form [formGroup]="addInterfaceForm" (ngSubmit)="submit()">
+  <div class="d-flex w-75">
+    <div class="input-group mb-3 mr-1">
+      <div class="input-group-append">
+        <span class="input-group-text bg-white text-dark border-0">Hostname :</span>
+      </div>
+      <input type="text" name="domainname" class="form-control" [ngClass]="isURLValid === false ? 'border border-danger':''" formControlName="interface_name"
+        (blur)="isValid('domain')" required placeholder="www.xyz.com">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-append">
+        <span class="input-group-text bg-white text-dark border-0">Loopback :</span>
+      </div>
+      <input type="text" class="form-control" formControlName="interface_ip" [ngClass]="isIpValid === false ? 'border border-danger':''"
+        name="domainip" (blur)="isValid('ip')" required placeholder="192.x.x.x">
+      <div class="input-group-append ml-1">
+        <button class="btn btn-outline-primary" [disabled]="(isURLValid && isIpValid)? false:true" type="submit">Add</button>
+      </div>
+    </div>
+  </div>
+</form>

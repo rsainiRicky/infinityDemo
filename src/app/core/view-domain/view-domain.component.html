@@ -1,0 +1,3 @@
+<app-domain-list-view [interfaces]="interface_list" (removeDomain)="removedomain($event)" (domainDetail)="openModal($event)"
+  (updateDomain)="updatedomain($event)"></app-domain-list-view>
+<app-modal-window *ngIf="isopen" (closeModel)="isCloseHandled($event)" [isOpen]="isopen" [interfaceName]="interface_name"></app-modal-window>
