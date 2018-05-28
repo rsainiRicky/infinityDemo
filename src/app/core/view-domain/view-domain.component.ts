@@ -18,7 +18,11 @@ export class ViewDomainComponent implements OnInit {
   }
   removedomain(selectedDomain) {
     this.interface_list.splice(this.interface_list.indexOf(selectedDomain), 1);
-    localStorage.setItem('domainList', JSON.stringify(this.interface_list));
+    if (Object.keys(this.interface_list).length < 1) {
+      localStorage.removeItem('domainList');
+    } else {
+      localStorage.setItem('domainList', JSON.stringify(this.interface_list));
+    }
   }
   openModal(event) {
     this.isopen = true;

@@ -49,7 +49,12 @@ export class ModalWindowComponent implements OnInit {
 
   removeSubdomain(selectedSubDomain) {
     this.subDomains.splice(this.subDomains.indexOf(selectedSubDomain), 1);
-    localStorage.setItem(this.interfaceName['interface_name'], JSON.stringify(this.subDomains));
+    if (Object.keys(this.subDomains).length < 1) {
+      localStorage.removeItem(this.interfaceName['interface_name']);
+    } else {
+      localStorage.setItem(this.interfaceName['interface_name'], JSON.stringify(this.subDomains));
+    }
+
   }
 
   updatedomain(event) {

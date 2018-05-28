@@ -7,8 +7,10 @@
   </div>
   <div class="row text-center" *ngFor="let interface of interfaces; let i=index">
     <span class="col-md-3">{{i + 1}}</span>
-    <span class="col-md-3" [contentEditable]="editMode && (i=== selectedIndex)" (blur)="validate($event,'domain')">{{interface.interface_name}}</span>
-    <span class="col-md-3" [contentEditable]="editMode && (i=== selectedIndex)" (blur)="validate($event,'ip')">{{interface.interface_ip}}</span>
+    <span class="col-md-3" [ngClass]="editMode && (i=== selectedIndex) ? 'border border-primary':''" [contentEditable]="editMode && (i=== selectedIndex)"
+      (blur)="validate($event,'domain')">{{interface.interface_name}}</span>
+    <span class="col-md-3" [ngClass]="editMode && (i=== selectedIndex) ? 'border border-primary':''" [contentEditable]="editMode && (i=== selectedIndex)"
+      (blur)="validate($event,'ip')">{{interface.interface_ip}}</span>
     <div class="col-md-3 px-1 py-1">
       <div class="btn-group mt-0" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-primary mr-1 rounded btn-sm" (click)="ChangeMode(i,interface)">
